@@ -1,0 +1,4 @@
+/dist
+/src/sass
+*.min.js
+/src/pages
