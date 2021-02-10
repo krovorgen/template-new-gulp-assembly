@@ -7,6 +7,7 @@ const uglify = require('gulp-uglify-es').default
 const autoprefixer = require('gulp-autoprefixer')
 const imagemin = require('gulp-imagemin')
 const del = require('del')
+const htmlmin = require('gulp-htmlmin')
 
 function browsersync() {
     browserSync.init({
@@ -45,10 +46,10 @@ function sctipts() {
 
 function styles() {
     return src('app/scss/style.scss')
-        .pipe(scss({ outputStyle: 'compressed' }))
+        .pipe(scss({ outputStyle: 'compressed' }).on('error', scss.logError))
         .pipe(concat('style.min.css'))
         .pipe(
-            autoPrefixer({
+            autoprefixer({
                 overrideBrowserslist: ['last 10 version'],
                 grid: true,
             })
@@ -63,12 +64,15 @@ function build() {
             'app/css/style.min.css',
             'app/fonts/**/*',
             'app/js/main.min.js',
-            'app/*.html',
         ],
         { base: 'app' }
     ).pipe(dest('dist'))
 }
-
+function htmls() {
+    return src('app/*.html')
+        .pipe(htmlmin({ collapseWhitespace: true }))
+        .pipe(dest('dist/'))
+}
 function watching() {
     watch(['app/scss/**/*.scss'], styles)
     watch(['app/*.html']).on('change', browserSync.reload)
@@ -81,6 +85,7 @@ exports.browsersync = browsersync
 exports.sctipts = sctipts
 exports.images = images
 exports.cleanDist = cleanDist
+exports.htmls = htmls
 
-exports.build = series(cleanDist, images, build)
+exports.build = series(cleanDist, images, htmls, build)
 exports.default = parallel(styles, sctipts, browsersync, watching)

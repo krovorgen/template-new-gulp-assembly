@@ -1,23 +1,2 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css');
-.button {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    outline: none;
-    padding: 5px;
-    width: 100px;
-    height: 100px;
-    color: #faebd7;
-    background-color: #f00;
-    -webkit-transition: all 1s;
-    -o-transition: all 1s;
-    transition: all 1s;
-}
-.button:hover {
-    display: grid;
-    color: #0ff;
-    -webkit-transition: all 1s;
-    -o-transition: all 1s;
-    transition: all 1s;
-}
