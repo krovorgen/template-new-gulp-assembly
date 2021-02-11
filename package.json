@@ -1,9 +1,9 @@
 {
-    "name": "portfolio",
+    "name": "name",
     "version": "1.0.0",
     "description": "",
     "main": "gulpfile.js",
-    "homepage": "http://krovorgen.github.io/asus-zenbook-layout",
+    "homepage": "",
     "scripts": {
         "slint": "stylelint \"**/*.scss\"",
         "slint:fix": "stylelint \"**/*.scss\" --fix",

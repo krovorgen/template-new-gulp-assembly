@@ -455,9 +455,6 @@
 				"unspecified": "bottomAlphabetical"
 			}
 		],
-		"at-rule-disallowed-list": [
-			"extend"
-		],
 		"at-rule-empty-line-before": [
 			"always",
 			{
