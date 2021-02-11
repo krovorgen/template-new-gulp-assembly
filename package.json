@@ -9,7 +9,7 @@
         "slint:fix": "stylelint \"**/*.scss\" --fix",
         "lint": "prettier --check . && eslint .",
         "lint:fix": "prettier --write . && eslint . --fix",
-        "deploy": "gh-pages -d src"
+        "deploy": "gh-pages -d app"
     },
     "author": "",
     "license": "ISC",
