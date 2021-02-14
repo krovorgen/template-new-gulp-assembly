@@ -3,3 +3,4 @@
 *.min.js
 /src/pages
 gulpfile.js
+*.css
