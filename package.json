@@ -6,9 +6,6 @@
     "homepage": "",
     "scripts": {
         "slint": "stylelint \"**/*.scss\"",
-        "slint:fix": "stylelint \"**/*.scss\" --fix",
-        "lint": "prettier --check . && eslint .",
-        "lint:fix": "prettier --write . && eslint . --fix",
         "deploy": "gh-pages -d app"
     },
     "author": "",
