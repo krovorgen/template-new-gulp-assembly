@@ -5,7 +5,8 @@
     "main": "gulpfile.js",
     "homepage": "",
     "scripts": {
-        "slint": "stylelint \"**/*.scss\"",
+        "stylelint": "stylelint \"**/*.scss\"",
+        "stylelint:fix": "stylelint \"**/*{.css,.scss}\" --fix",
         "deploy": "gh-pages -d app"
     },
     "author": "",
@@ -18,7 +19,6 @@
         "gulp-autoprefixer": "^7.0.1",
         "gulp-concat": "^2.6.1",
         "gulp-htmlmin": "^5.0.1",
-        "gulp-imagemin": "^7.1.0",
         "gulp-sass": "^4.1.0",
         "gulp-uglify-es": "^2.0.0",
         "stylelint": "^13.9.0",
