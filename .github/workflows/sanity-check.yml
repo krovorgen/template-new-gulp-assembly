@@ -14,7 +14,4 @@ jobs:
                   npm install
             - name: Lint check
               run: |
-                  npm run lint
-            - name: Style check
-              run: |
-                  npm run slint
+                  npm run stylelint
