@@ -8,8 +8,8 @@ html {
     box-sizing: inherit;
 }
 
-ul[class],
-ol[class] {
+ul,
+ol {
     padding: 0;
 }
 
@@ -21,8 +21,8 @@ h4,
 h5,
 h6,
 p,
-ul[class],
-ol[class],
+ul,
+ol,
 li,
 figure,
 figcaption,
@@ -32,13 +32,18 @@ dd {
     margin: 0;
 }
 
-ul[class] {
+ul {
     list-style: none;
 }
 
 img {
     display: block;
     max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
 input,
