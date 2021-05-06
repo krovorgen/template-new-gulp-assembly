@@ -21,6 +21,7 @@
         "gulp-htmlmin": "^5.0.1",
         "gulp-sass": "^4.1.0",
         "gulp-uglify-es": "^2.0.0",
+        "prettier": "^2.2.1",
         "stylelint": "^13.9.0",
         "stylelint-declaration-block-no-ignored-properties": "^2.3.0",
         "stylelint-order": "^4.1.0",
