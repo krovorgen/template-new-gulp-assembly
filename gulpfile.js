@@ -1,7 +1,7 @@
 const { src, dest, watch, parallel, series } = require('gulp');
 
 const browserSync = require('browser-sync').create();
-const scss = require('gulp-sass');
+const scss = require('gulp-dart-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
