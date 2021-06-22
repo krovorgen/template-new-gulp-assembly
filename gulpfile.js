@@ -7,20 +7,21 @@ const sourcemaps = require('gulp-sourcemaps');
 const uglify = require('gulp-uglify');
 const htmlmin = require('gulp-html-minifier-terser');
 const concat = require('gulp-concat');
-const del = require('del');
+const fileInclude = require('gulp-file-include');
 
 const browsersync = () => {
     browserSync.init({
         server: {
-            baseDir: 'app/',
+            baseDir: 'build/',
         },
         notify: false,
     });
 };
 
 const watching = () => {
-    watch(['app/*.html']).on('change', browserSync.reload);
+    watch(['app/style-map/*.html']).on('change', browserSync.reload);
     watch(['app/scss/**/*.scss'], styles);
+    watch(['app/**/*.html'], html);
     watch(['app/js/index.js', '!app/js/index.min.js', '!app/js/index.min.js.map'], scripts);
 };
 
@@ -36,7 +37,7 @@ const styles = () => {
             }),
         )
         .pipe(sourcemaps.write('.'))
-        .pipe(dest('app/css'))
+        .pipe(dest('build/css'))
         .pipe(browserSync.stream());
 };
 
@@ -46,43 +47,39 @@ const scripts = () => {
         .pipe(concat('index.min.js'))
         .pipe(uglify())
         .pipe(sourcemaps.write('.'))
-        .pipe(dest('app/js'))
+        .pipe(dest('build/js'))
         .pipe(browserSync.stream());
 };
 
-const cleanDist = () => {
-    return del('dist');
+const html = () => {
+    return src(['app/*.html', '!app/parts/**/*.html'])
+        .pipe(
+            fileInclude({
+                prefix: '@@',
+                basepath: '@file',
+            }),
+        )
+        .pipe(dest('./build'))
+        .pipe(browserSync.stream());
 };
 
-const htmls = () => {
-    return src('app/*.html')
+const htmlMin = () => {
+    return src('build/*.html')
         .pipe(htmlmin({ collapseWhitespace: true }))
-        .pipe(dest('dist/'));
+        .pipe(dest('build/'));
 };
 
-const build = () => {
-    return src(
-        [
-            'app/css/style.min.css',
-            'app/css/style.min.css.map',
-            'app/js/index.min.js',
-            'app/js/index.min.js.map',
-            'app/fonts/**/*',
-            'app/images/**/*',
-        ],
-        {
-            base: 'app',
-        },
-    ).pipe(dest('dist'));
+const toBuild = () => {
+    return src(['app/fonts/**/*', 'app/images/**/*', 'app/style-map/**/*'], {
+        base: 'app',
+    }).pipe(dest('build'));
 };
 
 exports.styles = styles;
 exports.scripts = scripts;
 exports.browsersync = browsersync;
 exports.watching = watching;
-exports.build = build;
-exports.cleanDist = cleanDist;
-exports.htmls = htmls;
+exports.htmlMin = htmlMin;
+exports.html = html;
 
-exports.build = series(cleanDist, htmls, build);
-exports.default = parallel(styles, scripts, browsersync, watching);
+exports.default = series(parallel(styles, scripts, html, toBuild), parallel(browsersync, watching));
