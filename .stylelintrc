@@ -14,6 +14,12 @@
                 "hasBlock": false
             },
             "declarations",
+
+            {
+                "type": "at-rule",
+                "name": "include",
+                "hasBlock": true
+            },
             {
                 "type": "rule",
                 "selector": "&::before"
@@ -21,6 +27,10 @@
             {
                 "type": "rule",
                 "selector": "&::after"
+            },
+            {
+                "type": "rule",
+                "selector": "&:hover"
             },
             "rules",
             {
@@ -37,10 +47,6 @@
             },
             {
                 "type": "rule",
-                "selector": "&:hover"
-            },
-            {
-                "type": "rule",
                 "selector": "&:active"
             },
             {
@@ -53,11 +59,11 @@
             },
             {
                 "type": "rule",
-                "selector": "&:last-child"
+                "selector": "&:nth-child.+"
             },
             {
                 "type": "rule",
-                "selector": "&:nth-child.+"
+                "selector": "&:last-child"
             },
             {
                 "type": "rule",
@@ -65,20 +71,15 @@
             },
             {
                 "type": "rule",
-                "selector": "&\\..+"
-            },
-            {
-                "type": "rule",
                 "selector": "&--.+"
             },
             {
                 "type": "rule",
-                "selector": ".* &"
+                "selector": "&\\..+"
             },
             {
-                "type": "at-rule",
-                "name": "include",
-                "hasBlock": true
+                "type": "rule",
+                "selector": ".* &"
             },
             "at-rules"
         ],
@@ -458,9 +459,16 @@
         "at-rule-empty-line-before": [
             "always",
             {
-                "except": ["blockless-after-same-name-blockless", "first-nested"],
-                "ignore": ["after-comment"],
-                "ignoreAtRules": ["else"]
+                "except": [
+                    "blockless-after-same-name-blockless",
+                    "first-nested"
+                ],
+                "ignore": [
+                    "after-comment"
+                ],
+                "ignoreAtRules": [
+                    "else"
+                ]
             }
         ],
         "at-rule-name-case": "lower",
@@ -475,7 +483,10 @@
         "block-closing-brace-newline-after": [
             "always",
             {
-                "ignoreAtRules": ["if", "else"]
+                "ignoreAtRules": [
+                    "if",
+                    "else"
+                ]
             }
         ],
         "block-closing-brace-newline-before": "always-multi-line",
@@ -499,8 +510,13 @@
         "comment-empty-line-before": [
             "always",
             {
-                "except": ["first-nested"],
-                "ignore": ["after-comment", "stylelint-commands"]
+                "except": [
+                    "first-nested"
+                ],
+                "ignore": [
+                    "after-comment",
+                    "stylelint-commands"
+                ]
             }
         ],
         "comment-no-empty": true,
@@ -510,8 +526,14 @@
         "custom-property-empty-line-before": [
             "always",
             {
-                "except": ["after-custom-property", "first-nested"],
-                "ignore": ["after-comment", "inside-single-line-block"]
+                "except": [
+                    "after-custom-property",
+                    "first-nested"
+                ],
+                "ignore": [
+                    "after-comment",
+                    "inside-single-line-block"
+                ]
             }
         ],
         "custom-property-pattern": null,
@@ -532,8 +554,14 @@
         "declaration-empty-line-before": [
             "always",
             {
-                "except": ["after-declaration", "first-nested"],
-                "ignore": ["after-comment", "inside-single-line-block"]
+                "except": [
+                    "after-declaration",
+                    "first-nested"
+                ],
+                "ignore": [
+                    "after-comment",
+                    "inside-single-line-block"
+                ]
             }
         ],
         "declaration-no-important": [
@@ -615,8 +643,12 @@
         "rule-empty-line-before": [
             "always-multi-line",
             {
-                "except": ["first-nested"],
-                "ignore": ["after-comment"]
+                "except": [
+                    "first-nested"
+                ],
+                "ignore": [
+                    "after-comment"
+                ]
             }
         ],
         "selector-attribute-brackets-space-inside": "never",
@@ -660,7 +692,16 @@
         "string-no-newline": true,
         "string-quotes": "double",
         "time-min-milliseconds": 10,
-        "unit-disallowed-list": ["ch", "cm", "ex", "in", "mm", "pc", "pt", "q"],
+        "unit-disallowed-list": [
+            "ch",
+            "cm",
+            "ex",
+            "in",
+            "mm",
+            "pc",
+            "pt",
+            "q"
+        ],
         "unit-case": "lower",
         "unit-no-unknown": true,
         "unit-whitelist": null,
@@ -695,8 +736,14 @@
         "scss/dollar-variable-empty-line-before": [
             "always",
             {
-                "except": ["after-dollar-variable", "first-nested"],
-                "ignore": ["after-comment", "inside-single-line-block"]
+                "except": [
+                    "after-dollar-variable",
+                    "first-nested"
+                ],
+                "ignore": [
+                    "after-comment",
+                    "inside-single-line-block"
+                ]
             }
         ],
         "scss/dollar-variable-no-missing-interpolation": null,
@@ -704,8 +751,13 @@
         "scss/double-slash-comment-empty-line-before": [
             "always",
             {
-                "except": ["first-nested"],
-                "ignore": ["between-comments", "stylelint-commands"]
+                "except": [
+                    "first-nested"
+                ],
+                "ignore": [
+                    "between-comments",
+                    "stylelint-commands"
+                ]
             }
         ],
         "scss/double-slash-comment-inline": null,
