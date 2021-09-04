@@ -3,15 +3,15 @@ name: PR Sanity Check
 on: pull_request
 
 jobs:
-    lint:
-        runs-on: ubuntu-20.04
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v2
+  lint:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
 
-            - name: Install Packages
-              run: |
-                  npm install
-            - name: Lint check
-              run: |
-                  npm run stylelint
+      - name: Install Packages
+        run: |
+          npm install
+      - name: Lint check
+        run: |
+          npm run stylelint
