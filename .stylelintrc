@@ -22,6 +22,10 @@
       },
       {
         "type": "rule",
+        "selector": "&--.+"
+      },
+      {
+        "type": "rule",
         "selector": "&::before"
       },
       {
@@ -68,10 +72,6 @@
       {
         "type": "rule",
         "selector": "&\\[[^\\[\\]]+\\]"
-      },
-      {
-        "type": "rule",
-        "selector": "&--.+"
       },
       {
         "type": "rule",
